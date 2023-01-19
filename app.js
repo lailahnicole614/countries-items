@@ -27,11 +27,11 @@ window.addEventListener('load', async () => {
 
 async function findCountries(continent) {
     // Slice A: call the asynchronous fetch function to get the countries
+    const foundCountries = await getCountries(continent);
     // Slice C: add continent argument to getCountries function call
     // console log the response object to see all of the nested information returned
-    const foundCountries = await getCountries(continent);
     // Slice A: set the countries state to the response.data
-    countries = foundCountries;
+    countries = foundCountries.data;
     // Slice A: call displayCountries function;
     displayCountries(continent);
 }
@@ -40,7 +40,7 @@ searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = new FormData(searchForm);
     // Slice C: Call findCountries with continent from formData
-    findCountries(formData.get('continent'));
+    findCountries(continentSelect.value);
 });
 
 /* Display Functions */
