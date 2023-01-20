@@ -23,5 +23,5 @@ export async function getContinents() {
     const response = await query;
     console.log(await query);
     // Slice B: return the response
-    return response;
+    return respons;
 }
