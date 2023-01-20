@@ -19,5 +19,9 @@ export async function getCountries(continent) {
 
 export async function getContinents() {
     // Slice B: write an awaited client query to country_continent table and get all columns
+    let query = client.from('country_continents').select('*');
+    const response = await query;
+    console.log(await query);
     // Slice B: return the response
+    return response;
 }
